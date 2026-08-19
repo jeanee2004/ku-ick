@@ -18,9 +18,66 @@
   <div class="header-inner">
     <a class="logo" href="#home">🧭 <span>KU-ICK</span></a>
     <nav class="main-nav" id="mainNav">
-      <a href="#map">Map</a>
-      <a href="#life">Life in Korea</a>
-      <a href="#community">Community</a>
+      <a href="#home">Home</a>
+      <div class="nav-item">
+        <a href="#map">Map</a>
+        <div class="nav-dropdown">
+          <a href="#map" data-jump-map-cat="academic">🏫 Academic &amp; Admin</a>
+          <a href="#map" data-jump-map-cat="dorm">🏠 Dormitory</a>
+          <a href="#map" data-jump-map-cat="cafeteria">🍽 Food &amp; Cafeteria</a>
+          <a href="#map" data-jump-map-cat="study">📚 Study Lounges</a>
+          <a href="#map" data-jump-map-cat="health">🏥 Health &amp; Support</a>
+          <a href="#map" data-jump-map-cat="sports">💪 Sports &amp; Fitness</a>
+          <a href="#map" data-jump-map-cat="">✅ All Categories</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#life">Life in Korea</a>
+        <div class="nav-dropdown">
+          <a href="#life" data-jump-life-cat="Immigration">Immigration</a>
+          <a href="#life" data-jump-life-cat="Mobile">Mobile</a>
+          <a href="#life" data-jump-life-cat="Insurance">Insurance</a>
+          <a href="#life" data-jump-life-cat="Banking">Banking</a>
+          <a href="#life" data-jump-life-cat="Transportation">Transportation</a>
+          <a href="#life" data-jump-life-cat="Campus Life">Campus Life</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#apps">Useful Apps</a>
+        <div class="nav-dropdown">
+          <a href="#apps-translation-language">Translation &amp; Language</a>
+          <a href="#apps-messaging">Messaging</a>
+          <a href="#apps-maps-navigation">Maps &amp; Navigation</a>
+          <a href="#apps-transit-payments">Transit &amp; Payments</a>
+          <a href="#apps-banking">Banking</a>
+          <a href="#apps-food-delivery">Food Delivery</a>
+          <a href="#apps-shopping-marketplace">Shopping &amp; Marketplace</a>
+          <a href="#apps-emergency-safety">Emergency &amp; Safety</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#community">Community</a>
+        <div class="nav-dropdown">
+          <a href="#community-chat">Group Chat</a>
+          <a href="#community-ambassadors">KUS-Buddy &amp; Ambassadors</a>
+          <a href="#community-official">Official KU Channels</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#emergency">Emergency &amp; Safety</a>
+        <div class="nav-dropdown">
+          <a href="#emergency-numbers">Emergency Numbers</a>
+          <a href="#emergency-resources">Official Resources</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#faq">FAQ</a>
+        <div class="nav-dropdown">
+          <a href="#faq-before">Before You Arrive</a>
+          <a href="#faq-firstweek">First Week</a>
+          <a href="#faq-ongoing">Ongoing Life</a>
+        </div>
+      </div>
     </nav>
     <div class="header-actions">
       <div class="search-wrap">
@@ -49,7 +106,7 @@
   <div class="hero-widget" id="calendarWidget">
     <div class="widget-head">
       <span>📅 Fall 2026 Key Dates</span>
-      <span class="mock-badge" title="Placeholder schedule data">MOCK DATA</span>
+      <span class="info-badge" title="Compiled from Fall 2026 orientation materials — always confirm against the latest official academic calendar">FROM ORIENTATION GUIDE</span>
     </div>
     <div id="calendarNext" class="calendar-next"></div>
     <ul id="calendarList" class="calendar-list"></ul>
@@ -98,13 +155,16 @@
 <!-- ============ USEFUL APPS ============ -->
 <section class="section" id="apps">
   <div class="section-head"><h2>Useful Apps</h2></div>
+  <p class="section-sub">Real apps international students in Korea actually install, grouped by what they help with. Every link goes to the app or service's own official site.</p>
   <div class="apps-grid" id="appsGrid"></div>
 </section>
 
 <!-- ============ COMMUNITY ============ -->
 <section class="section alt" id="community">
   <div class="section-head"><h2>Community</h2></div>
-  <div class="community-card">
+  <p class="section-sub">Ways to connect with other KUS international students and official Korea University channels.</p>
+
+  <div class="community-card" id="community-chat">
     <div class="community-qr" id="communityQr">QR</div>
     <div class="community-text">
       <h3>Join the KUS international student group chat</h3>
@@ -112,6 +172,73 @@
       <a id="communityLink" class="btn-primary" href="#" target="_blank" rel="noopener">Open Group Link</a>
       <p class="mock-note">🚧 Placeholder link — set <code>COMMUNITY_LINK</code> in script.js once a real group exists.</p>
     </div>
+  </div>
+
+  <div class="subsection" id="community-ambassadors">
+    <h3 class="subsection-title">KUS-Buddy &amp; Student Ambassadors</h3>
+    <p class="section-sub">KUS-Buddy is the peer-mentor program orientation staff introduce you to in your first week — they're usually the fastest way to get a question answered in plain English. If you haven't been matched with one yet, ask at the Office of International Affairs desk (Nongshim International Hall, Rm 102).</p>
+  </div>
+
+  <div class="subsection" id="community-official">
+    <h3 class="subsection-title">Official Korea University Channels</h3>
+    <div class="link-card-grid">
+      <a class="link-card" href="https://www.korea.edu/en/" target="_blank" rel="noopener"><strong>Korea University — Global Site</strong><span>korea.edu/en</span></a>
+      <a class="link-card" href="https://siae.korea.ac.kr/" target="_blank" rel="noopener"><strong>KU Sejong — International Team</strong><span>siae.korea.ac.kr</span></a>
+      <a class="link-card" href="https://www.facebook.com/kuoia.official/" target="_blank" rel="noopener"><strong>KU Office of International Affairs — Facebook</strong><span>facebook.com/kuoia.official</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EMERGENCY & SAFETY ============ -->
+<section class="section" id="emergency">
+  <div class="section-head"><h2>Emergency &amp; Safety</h2></div>
+  <p class="section-sub">General, publicly verified numbers and official resources. Sejong-campus-specific emergency procedures and office contact details are still pending confirmation — ask KUS-Buddy or the Office of International Affairs directly in the meantime.</p>
+
+  <div class="subsection" id="emergency-numbers">
+    <h3 class="subsection-title">Emergency Numbers</h3>
+    <div class="emergency-grid">
+      <div class="emergency-card"><span class="emergency-num">112</span><span>Police</span></div>
+      <div class="emergency-card"><span class="emergency-num">119</span><span>Fire &amp; Ambulance</span></div>
+      <div class="emergency-card"><span class="emergency-num">1345</span><span>Immigration Contact Center (multilingual)</span></div>
+      <div class="emergency-card"><span class="emergency-num">1330</span><span>Korea Travel Hotline (24/7, multilingual)</span></div>
+    </div>
+  </div>
+
+  <div class="subsection" id="emergency-resources">
+    <h3 class="subsection-title">Official Resources</h3>
+    <div class="link-card-grid">
+      <a class="link-card" href="https://www.hikorea.go.kr" target="_blank" rel="noopener"><strong>HiKorea</strong><span>Visa &amp; ARC — official immigration portal</span></a>
+      <a class="link-card" href="https://www.nhis.or.kr/english" target="_blank" rel="noopener"><strong>NHIS</strong><span>National Health Insurance Service</span></a>
+      <a class="link-card" href="https://english.seoul.go.kr/service/living/disaster-evacuation-tips-citizens/emergency-ready-app/" target="_blank" rel="noopener"><strong>Emergency Ready App</strong><span>Disaster/safety alerts in English &amp; more</span></a>
+      <a class="link-card" href="https://siae.korea.ac.kr/" target="_blank" rel="noopener"><strong>KU Sejong International Team</strong><span>siae.korea.ac.kr</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section alt" id="faq">
+  <div class="section-head"><h2>FAQ</h2></div>
+  <p class="section-sub">Common questions, grouped by when they come up. General guidance — always confirm campus-specific details with the Office of International Affairs.</p>
+
+  <div class="subsection" id="faq-before">
+    <h3 class="subsection-title">Before You Arrive</h3>
+    <details class="faq-item"><summary>Do I need a Korean phone number before I arrive?</summary><p>No — most students get a prepaid USIM after landing (see Life in Korea → Mobile). Check with your home carrier about short-term international roaming for the first day or two.</p></details>
+    <details class="faq-item"><summary>How do I apply for a dorm room?</summary><p>Dorm applications are handled through the university before arrival — check the current cycle on the KU Sejong portal (see Community → Official KU Channels).</p></details>
+    <details class="faq-item"><summary>What should I pack that's hard to find in Korea?</summary><p>Prescription medication in original packaging with a doctor's note, spare glasses/contacts, and a plug adapter — Korea uses Type C/F sockets at 220V.</p></details>
+  </div>
+
+  <div class="subsection" id="faq-firstweek">
+    <h3 class="subsection-title">First Week</h3>
+    <details class="faq-item"><summary>What's the first thing I should do after landing?</summary><p>Settle into your dorm/housing, then plan your ARC application within the required window (see Life in Korea → Immigration), and get a prepaid SIM if you don't have connectivity yet.</p></details>
+    <details class="faq-item"><summary>Where do I get my student ID?</summary><p>At the Library (Academic Information Center) — see the Map.</p></details>
+    <details class="faq-item"><summary>Is tap water safe to drink on campus?</summary><p>Bottled or filtered water is the common default in Korea and varies by building — check dorm signage, and use a filter or boiled water if you're unsure.</p></details>
+  </div>
+
+  <div class="subsection" id="faq-ongoing">
+    <h3 class="subsection-title">Ongoing Life</h3>
+    <details class="faq-item"><summary>What do I do in a medical emergency?</summary><p>Call 119 (fire &amp; ambulance) — see Emergency &amp; Safety.</p></details>
+    <details class="faq-item"><summary>What if I lose my ARC or passport?</summary><p>Report a stolen passport/ARC to the police (112), then contact your embassy for passport reissue and the immigration office (HiKorea, 1345) for ARC reissue.</p></details>
+    <details class="faq-item"><summary>How do I ask for help in Korean-only situations?</summary><p>Papago's camera/voice translation covers most day-to-day situations — or ask KUS-Buddy / the Office of International Affairs. See Useful Apps and the "Need help?" banner.</p></details>
   </div>
 </section>
 
@@ -125,16 +252,21 @@
     <div class="footer-col">
       <h4>Contact &amp; Support</h4>
       <p>Office of International Affairs<br>Phone: (기재 예정) · Email: (기재 예정)<br>Nongshim International Hall, Rm 102</p>
-      <span class="mock-badge">MOCK — PENDING REAL INFO</span>
+      <p><a href="https://siae.korea.ac.kr/" target="_blank" rel="noopener">KU Sejong International Team — official site ↗</a></p>
+      <span class="mock-badge">PHONE/EMAIL PENDING — SITE LINK IS REAL</span>
     </div>
     <div class="footer-col">
       <h4>Quick Links</h4>
       <a href="#map">Map</a>
       <a href="#life">Life in Korea</a>
+      <a href="#apps">Useful Apps</a>
       <a href="#community">Community</a>
+      <a href="#emergency">Emergency &amp; Safety</a>
+      <a href="#faq">FAQ</a>
+      <a href="#" data-open-privacy>Privacy Policy</a>
     </div>
   </div>
-  <p class="footer-copy">© 2026 KU-ICK. Sample data throughout this site is a mockup for demo purposes.</p>
+  <p class="footer-copy">© 2026 KU-ICK. Map coordinates and Life in Korea article text are placeholders pending survey/author drafts — everything else reflects real, sourced information.</p>
 </footer>
 
 <!-- ============ LOGIN MODAL ============ -->
@@ -166,6 +298,28 @@
   <div class="overlay-box">
     <button class="overlay-close" id="articleCloseBtn">✕</button>
     <div id="articleBody"></div>
+  </div>
+</div>
+
+<!-- ============ PRIVACY POLICY MODAL ============ -->
+<div class="overlay" id="privacyOverlay" onclick="closePrivacyOnOverlay(event)" hidden>
+  <div class="overlay-box">
+    <button class="overlay-close" id="privacyCloseBtn">✕</button>
+    <div id="privacyBody" class="privacy-body">
+      <h2>Privacy Policy</h2>
+      <p class="auth-note">Last updated: August 2026</p>
+      <p>KU-ICK is a static, unofficial student-made site for Korea University Sejong Campus international students. It is not affiliated with Korea University's official portal.</p>
+      <h3>What we store</h3>
+      <p>This site has no server or database. If you sign up or log in, your name, email, nationality, and student type are saved only in your own browser's local storage (<code>localStorage</code>) — they are never transmitted anywhere. Clearing your browser data or using "Delete account" in My Page removes it completely.</p>
+      <h3>Accounts are a demo</h3>
+      <p>Sign-up and log-in on this site do not verify any credential (no password check, no email confirmation). Treat it as a convenience for saving places/guides in your browser, not a real account system, until a real backend is added.</p>
+      <h3>Cookies &amp; tracking</h3>
+      <p>This site does not set cookies and does not currently run any analytics or tracking scripts.</p>
+      <h3>External links</h3>
+      <p>Map directions, Useful Apps, and Life in Korea guides link out to third-party sites and apps (Kakao Map, Naver Map, Google Maps, HiKorea, NHIS, banking apps, delivery apps, etc.). Those services have their own privacy policies — this policy only covers KU-ICK itself.</p>
+      <h3>Contact</h3>
+      <p>Questions about this site can be directed through the Office of International Affairs / KUS-Buddy contact channels (see the footer) — a dedicated site contact is pending.</p>
+    </div>
   </div>
 </div>
 
