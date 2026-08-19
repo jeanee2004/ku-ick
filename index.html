@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KU-ICK — Korea University Sejong Campus Guide</title>
+<meta name="description" content="Find campus places, get directions, and read Korea-life guides for KU Sejong international students.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a class="logo" href="#home">🧭 <span>KU-ICK</span></a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#map">Map</a>
+      <a href="#life">Life in Korea</a>
+      <a href="#community">Community</a>
+    </nav>
+    <div class="header-actions">
+      <div class="search-wrap">
+        <input type="text" id="siteSearch" placeholder="Search places, guides…" autocomplete="off">
+        <button type="button" id="searchBtn" aria-label="Search">🔍</button>
+        <div class="search-dropdown" id="searchDropdown" hidden></div>
+      </div>
+      <button type="button" class="btn-text" id="a11yToggle" title="Toggle large text">Aa</button>
+      <button type="button" class="btn-outline" id="authBtn">Log in</button>
+    </div>
+    <button type="button" class="icon-btn-menu" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- ============ HOME ============ -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <p class="eyebrow">Korea University Sejong Campus</p>
+    <h1>Everything a new international student needs, <span class="accent">in one map.</span></h1>
+    <p class="hero-sub">Find campus places with real directions, browse Korea-life guides, and join the student community — no login required to look around.</p>
+    <div class="hero-cta">
+      <a href="#map" class="btn-primary">Open Campus Map</a>
+      <a href="#life" class="btn-outline">Browse Guides</a>
+    </div>
+  </div>
+  <div class="hero-widget" id="calendarWidget">
+    <div class="widget-head">
+      <span>📅 Fall 2026 Key Dates</span>
+      <span class="mock-badge" title="Placeholder schedule data">MOCK DATA</span>
+    </div>
+    <div id="calendarNext" class="calendar-next"></div>
+    <ul id="calendarList" class="calendar-list"></ul>
+  </div>
+</section>
+
+<div class="need-help-banner">
+  💬 Need help? Ask <strong>KUS-Buddy</strong> or the Office of International Affairs — see <a href="#contact">Contact &amp; Support</a> in the footer.
+</div>
+
+<!-- ============ MAP ============ -->
+<section class="section" id="map">
+  <div class="section-head">
+    <h2>Campus &amp; Neighborhood Map</h2>
+    <span class="mock-badge" title="Coordinates are approximate placeholders, not surveyed yet">MOCK COORDINATES</span>
+  </div>
+  <p class="section-sub">Tap a category to filter markers, then tap a marker for details and directions. Coordinates are never shown — just tap “Get Directions.”</p>
+
+  <div class="map-filters" id="mapFilters"></div>
+
+  <div class="map-layout">
+    <div id="leafletMap" class="leaflet-map"></div>
+    <div class="map-panel" id="mapPanel">
+      <p class="map-panel-empty">Select a marker to see place details here.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIFE IN KOREA ============ -->
+<section class="section alt" id="life">
+  <div class="section-head">
+    <h2>Life in Korea</h2>
+    <span class="mock-badge" title="Article text is placeholder copy — swap in your researched drafts">MOCK CONTENT</span>
+  </div>
+  <p class="section-sub">Practical guides for ARC, phone, insurance, banking, and getting around — searchable, no login needed.</p>
+
+  <div class="life-controls">
+    <input type="text" id="articleSearch" placeholder="Search guides (e.g. SIM, bank, Korail)…" autocomplete="off">
+    <div class="life-filters" id="lifeFilters"></div>
+  </div>
+
+  <div class="article-grid" id="articleGrid"></div>
+  <p class="empty-state" id="articleEmpty" hidden>No guides match your search. Try another keyword or category.</p>
+</section>
+
+<!-- ============ USEFUL APPS ============ -->
+<section class="section" id="apps">
+  <div class="section-head"><h2>Useful Apps</h2></div>
+  <div class="apps-grid" id="appsGrid"></div>
+</section>
+
+<!-- ============ COMMUNITY ============ -->
+<section class="section alt" id="community">
+  <div class="section-head"><h2>Community</h2></div>
+  <div class="community-card">
+    <div class="community-qr" id="communityQr">QR</div>
+    <div class="community-text">
+      <h3>Join the KUS international student group chat</h3>
+      <p>Real-time discussion happens off-site, in the group your KUS-Buddy or orientation staff shares. This page is just the door in.</p>
+      <a id="communityLink" class="btn-primary" href="#" target="_blank" rel="noopener">Open Group Link</a>
+      <p class="mock-note">🚧 Placeholder link — set <code>COMMUNITY_LINK</code> in script.js once a real group exists.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <p class="logo">🧭 KU-ICK</p>
+      <p class="footer-note">An unofficial student-made guide for KU Sejong Campus international students. Not affiliated with Korea University's official portal.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contact &amp; Support</h4>
+      <p>Office of International Affairs<br>Phone: (기재 예정) · Email: (기재 예정)<br>Nongshim International Hall, Rm 102</p>
+      <span class="mock-badge">MOCK — PENDING REAL INFO</span>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#map">Map</a>
+      <a href="#life">Life in Korea</a>
+      <a href="#community">Community</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 KU-ICK. Sample data throughout this site is a mockup for demo purposes.</p>
+</footer>
+
+<!-- ============ LOGIN MODAL ============ -->
+<div class="overlay" id="authOverlay" onclick="closeAuthOnOverlay(event)" hidden>
+  <div class="overlay-box small">
+    <button class="overlay-close" id="authCloseBtn">✕</button>
+    <div id="authBody"></div>
+  </div>
+</div>
+
+<!-- ============ MY PAGE MODAL ============ -->
+<div class="overlay" id="myOverlay" onclick="closeMyOnOverlay(event)" hidden>
+  <div class="overlay-box">
+    <button class="overlay-close" id="myCloseBtn">✕</button>
+    <div id="myBody"></div>
+  </div>
+</div>
+
+<!-- ============ DIRECTIONS CHOOSER MODAL ============ -->
+<div class="overlay" id="directionsOverlay" onclick="closeDirectionsOnOverlay(event)" hidden>
+  <div class="overlay-box small">
+    <button class="overlay-close" id="directionsCloseBtn">✕</button>
+    <div id="directionsBody"></div>
+  </div>
+</div>
+
+<!-- ============ ARTICLE DETAIL MODAL ============ -->
+<div class="overlay" id="articleOverlay" onclick="closeArticleOnOverlay(event)" hidden>
+  <div class="overlay-box">
+    <button class="overlay-close" id="articleCloseBtn">✕</button>
+    <div id="articleBody"></div>
+  </div>
+</div>
+
+<!-- ============ CONFIRM MODAL (shared) ============ -->
+<div class="overlay" id="confirmOverlay" onclick="closeConfirmOnOverlay(event)" hidden>
+  <div class="overlay-box small">
+    <div id="confirmBody"></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
