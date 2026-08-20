@@ -139,9 +139,9 @@
 <section class="section alt" id="life">
   <div class="section-head">
     <h2>Life in Korea</h2>
-    <span class="mock-badge" title="Article text is placeholder copy — swap in your researched drafts">MOCK CONTENT</span>
+    <span class="info-badge" title="Researched settlement guides — always confirm details against the official source linked in each guide">RESEARCHED GUIDES</span>
   </div>
-  <p class="section-sub">Practical guides for ARC, phone, insurance, banking, and getting around — searchable, no login needed.</p>
+  <p class="section-sub">Step-by-step guides for your visa, Residence Card, phone, insurance, banking, and getting around — searchable and filterable, no login needed. Six at a time; use the pager below for the rest.</p>
 
   <div class="life-controls">
     <input type="text" id="articleSearch" placeholder="Search guides (e.g. SIM, bank, Korail)…" autocomplete="off">
@@ -149,6 +149,7 @@
   </div>
 
   <div class="article-grid" id="articleGrid"></div>
+  <nav class="pager" id="articlePager" aria-label="Guide pages" hidden></nav>
   <p class="empty-state" id="articleEmpty" hidden>No guides match your search. Try another keyword or category.</p>
 </section>
 
@@ -266,7 +267,7 @@
       <a href="#" data-open-privacy>Privacy Policy</a>
     </div>
   </div>
-  <p class="footer-copy">© 2026 KU-ICK. Map coordinates and Life in Korea article text are placeholders pending survey/author drafts — everything else reflects real, sourced information.</p>
+  <p class="footer-copy">© 2026 KU-ICK. Map coordinates are still placeholders pending an on-site survey — Life in Korea guides and everything else reflect real, sourced information.</p>
 </footer>
 
 <!-- ============ LOGIN MODAL ============ -->
@@ -331,6 +332,7 @@
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="posts.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

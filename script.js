@@ -5,12 +5,12 @@
    - Place coordinates are hand-placed approximations pending an on-site
      survey (see PRD §7.5/§15) — this is a real, ongoing caveat, not a demo
      placeholder, so it stays flagged in the UI.
-   - Article bodies for Immigration/Mobile/Insurance/Banking/Transportation
-     are stand-ins for the author's own researched drafts, which will be
-     swapped in separately — that MOCK_NOTE stays until then.
+   - Life in Korea guides are the author's own researched posts. They live in
+     content/ as markdown and are compiled into posts.js by
+     tools/build-posts.mjs — this file never holds their text.
    - The Fall 2026 academic calendar below is transcribed from real
-     orientation materials (PRD §10), not invented — only the map
-     coordinates and the Life in Korea article bodies are placeholders.
+     orientation materials (PRD §10), not invented — the map coordinates are
+     now the only placeholders left on the page.
    - Community link/QR are genuinely unset (no group exists yet).
    - Useful Apps, Emergency numbers, and outside links (HiKorea, NHIS,
      Korail, T-money, Korea University's own sites) are real public
@@ -84,60 +84,93 @@ const places = [
   { id: 'p36', nameEn: 'Central Plaza', category: 'landmark', dLat: 0.0002, dLng: 0.0004, desc: 'Central Plaza — hosts the Welcome Event for international students.', hours: null },
 ];
 
-// Placeholder copy pending the author's own researched drafts.
-const MOCK_NOTE = 'This is placeholder guide text for layout/demo purposes — replace with the real researched article.';
+/* Life in Korea guides come from two places:
+   - window.KUICK_POSTS: the researched settlement-guide posts, generated from
+     content/ by tools/build-posts.mjs. Bodies are markdown.
+   - SITE_GUIDES below: short in-app guides that just point at other sections
+     of this page, so they have no markdown source file of their own. */
 
-const articles = [
-  { slug: 'arc-visa', titleEn: 'Alien Registration Card (ARC) & Visa', category: 'Immigration', tags: ['arc', 'visa', 'immigration', 'registration', 'd-2', 'd-4'],
-    summary: 'What the ARC is, when to apply, and what documents you’ll need.',
-    body: [MOCK_NOTE, 'International students generally register for an Alien Registration Card (ARC) within 90 days of entering Korea, at the immigration office covering their address. Bring your passport, visa, a passport photo, proof of enrollment, and the application fee.', 'The ARC doubles as your Korean ID for phone contracts, bank accounts, and health insurance, so getting it early unblocks almost everything else on this list.', 'Apply or check requirements on the official HiKorea portal (hikorea.go.kr) — see the Emergency & Safety section for the link and the multilingual immigration hotline.'],
-    relatedSlugs: ['usim-phone', 'bank-account', 'health-insurance'] },
+const SITE_GUIDES = [
+  { slug: 'academic-calendar', title: 'Fall 2026 Academic Calendar', category: 'Campus Life',
+    subtitle: 'Key Fall 2026 semester dates, compiled from orientation materials.',
+    tags: ['calendar', 'schedule', 'semester', 'exam', 'holiday'],
+    body: [
+      'The Home page widget always highlights the next upcoming date automatically — this guide is the reference list behind it.',
+      'These dates are transcribed from the Fall 2026 orientation materials. Always double-check them against the latest official academic calendar, since dates can shift.',
+    ].join('\n\n') },
 
-  { slug: 'usim-phone', titleEn: 'Getting a SIM Card & Phone Number', category: 'Mobile', tags: ['usim', 'sim', 'phone', 'mobile', 'number'],
-    summary: 'How to get a Korean phone number as a new international student.',
-    body: [MOCK_NOTE, 'Most students get either a prepaid USIM (no contract, easiest before your ARC arrives) or a standard carrier plan (usually requires an ARC). Carrier stores and kiosks near campus and at the airport both sell USIMs.', 'Keep your number consistent once you get on — it’s tied to bank apps, delivery apps, and most Korean sign-up flows.'],
-    relatedSlugs: ['arc-visa', 'bank-account'] },
+  { slug: 'useful-apps', title: 'Useful Apps for Campus Life', category: 'Campus Life',
+    subtitle: 'The apps international students in Korea actually install, grouped by what they help with.',
+    tags: ['apps', 'papago', 'kakaotalk', 'naver map', 'toss', 'baemin', 'coupang'],
+    body: [
+      'Papago and Google Translate cover day-to-day translation. KakaoTalk is the default local messenger; WhatsApp is still useful for contacts back home. Naver Map, Kakao Map, and Google Maps cover navigation — Naver Map and Kakao Map are more complete for Korean addresses and transit.',
+      'Kakao T (taxis), T-money, and Korail Talk cover getting around. Toss, KakaoBank, and Hana Bank’s 1Q app are common choices for mobile-first banking. Baemin and Coupang Eats handle food delivery; Coupang covers general online shopping, and Danggeun Market (Karrot) is the go-to for secondhand goods. The Emergency Ready App sends disaster alerts in English and other languages.',
+      'See the **Useful Apps** section on this page — grouped the same way — for direct links to each one.',
+    ].join('\n\n') },
 
-  { slug: 'health-insurance', titleEn: 'National Health Insurance: Enrollment & Payment', category: 'Insurance', tags: ['insurance', 'health', 'nhi', 'hospital'],
-    summary: 'Enrolling in National Health Insurance (NHI) and paying premiums.',
-    body: [MOCK_NOTE, 'International students staying long-term are generally enrolled in National Health Insurance (NHI), either automatically or through the university. Monthly premiums are billed and can usually be paid by bank transfer or auto-debit.', 'Carry your NHI status (or ARC) when visiting a clinic — it substantially lowers the out-of-pocket cost.', 'Official info and enrollment status: the National Health Insurance Service site, nhis.or.kr (English version available) — linked in Emergency & Safety.'],
-    relatedSlugs: ['bank-account', 'arc-visa'] },
-
-  { slug: 'bank-account', titleEn: 'Opening a Bank Account in Korea', category: 'Banking', tags: ['bank', 'account', 'banking', 'debit card'],
-    summary: 'What you need to open a Korean bank account as a student.',
-    body: [MOCK_NOTE, 'Banks typically ask for your passport, ARC (or proof it’s in process), proof of enrollment, and sometimes a Korean phone number. Campus-adjacent branches are used to processing student accounts.', 'A Korean bank account and debit card are usually required before T-money auto-charge, some phone plans, and most part-time-job payroll.', 'Mobile-first alternatives like Toss and KakaoBank are popular with students too — see Useful Apps → Banking.'],
-    relatedSlugs: ['arc-visa', 'usim-phone', 'tmoney'] },
-
-  { slug: 'tmoney', titleEn: 'T-money: Getting, Charging, and Using Your Transit Card', category: 'Transportation', tags: ['tmoney', 'transit', 'bus', 'subway', 'card'],
-    summary: 'Getting a T-money card and using it on buses, subways, and at convenience stores.',
-    body: [MOCK_NOTE, 'T-money cards are sold at convenience stores (GS25, 7-Eleven, etc.) near campus and can be topped up with cash at the same stores or at subway station machines.', 'It covers city buses, intercity buses, subways, and can even be used like a small prepaid card at some shops.', 'Official info: t-money.co.kr — see Useful Apps → Transit & Payments.'],
-    relatedSlugs: ['naver-map-foreign', 'korail'] },
-
-  { slug: 'naver-map-foreign', titleEn: 'Using Naver Map in a Foreign Language', category: 'Transportation', tags: ['naver map', 'navigation', 'directions', 'language'],
-    summary: 'Switching Naver Map to English (or another language) for easier navigation.',
-    body: [MOCK_NOTE, 'Naver Map’s app settings let you switch the display language, which also affects transit directions and place names — useful since Korean addresses can be hard to search from a Latin keyboard otherwise.', 'For KU-ICK places, tap “Get Directions” rather than searching by address — it hands the coordinates straight to your map app.'],
-    relatedSlugs: ['korail', 'tmoney'] },
-
-  { slug: 'korail', titleEn: 'Booking Korail Train Tickets', category: 'Transportation', tags: ['korail', 'train', 'ktx', 'travel', 'chuseok'],
-    summary: 'How to book Korail (including KTX) tickets, useful for holiday travel.',
-    body: [MOCK_NOTE, 'The Korail app (and site, letskorail.com) let you book KTX and regular train tickets with a foreign passport; Jochiwon and Osong stations are the closest to campus.', 'Book early around holidays like Chuseok (Sep 24–26, 2026) — long-distance seats sell out fast.'],
-    relatedSlugs: ['naver-map-foreign', 'academic-calendar'] },
-
-  { slug: 'academic-calendar', titleEn: 'Fall 2026 Academic Calendar', category: 'Campus Life', tags: ['calendar', 'schedule', 'semester', 'exam', 'holiday'],
-    summary: 'Key Fall 2026 semester dates, compiled from orientation materials — see the widget on the home page for a live countdown.',
-    body: ['The Home page widget always highlights the next upcoming date automatically. This article is the reference list — see it below.', 'These dates are transcribed from the Fall 2026 orientation materials. Always double-check against the latest official academic calendar, since dates can shift.'],
-    relatedSlugs: ['korail'] },
-
-  { slug: 'useful-apps', titleEn: 'Useful Apps for Campus Life', category: 'Campus Life', tags: ['apps', 'papago', 'kakaotalk', 'naver map', 'toss', 'baemin', 'coupang'],
-    summary: 'Real apps international students in Korea actually install, grouped by what they help with.',
-    body: ['Papago and Google Translate cover day-to-day translation. KakaoTalk is the default local messenger; WhatsApp is still useful for contacts back home. Naver Map, Kakao Map, and Google Maps cover navigation — Naver Map and Kakao Map are more complete for Korean addresses and transit. Kakao T (taxis), T-money, and Korail Talk cover getting around. Toss, KakaoBank, and Hana Bank’s 1Q app are common choices for mobile-first banking. Baemin and Coupang Eats handle food delivery; Coupang covers general online shopping, and Danggeun Market (Karrot) is the go-to for secondhand goods. The Emergency Ready App sends disaster alerts in English and other languages.', 'See the Useful Apps section on this page — grouped the same way — for direct links.'],
-    relatedSlugs: ['bank-account', 'naver-map-foreign'] },
-
-  { slug: 'student-id', titleEn: 'Getting Your Student ID Card', category: 'Campus Life', tags: ['student id', 'library', 'card'],
-    summary: 'Where and how to get your physical student ID card.',
-    body: [MOCK_NOTE, 'Student ID cards are issued at the Library (Academic Information Center) — bring your admission confirmation and a photo ID.', 'Your student ID is also what gets you into the 24-hour reading room and some library-only services.'],
-    relatedSlugs: ['arc-visa'] },
+  { slug: 'student-id', title: 'Getting Your Student ID Card', category: 'Campus Life',
+    subtitle: 'Where on campus your physical student ID is issued, and what it unlocks.',
+    tags: ['student id', 'library', 'card', 'campus'],
+    body: [
+      'Student ID cards are issued at the **Library (Academic Information Center)** — find it under Academic & Admin on the campus map.',
+      'Your student ID is also what gets you into the 24-hour reading room and other library-only services, so it is worth collecting in your first week.',
+    ].join('\n\n') },
 ];
+
+/* Related guides are computed from shared tags rather than hand-listed, so
+   newly added posts start cross-linking without anyone maintaining a list. */
+function relatedSlugsFor(article, all) {
+  const mine = new Set(article.tags.map(t => t.toLowerCase()));
+  return all
+    .filter(other => other.slug !== article.slug)
+    .map(other => {
+      const shared = other.tags.filter(t => mine.has(t.toLowerCase())).length;
+      const sameSeries = other.series && other.series === article.series ? 1 : 0;
+      return { slug: other.slug, score: shared * 2 + sameSeries };
+    })
+    .filter(x => x.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+    .map(x => x.slug);
+}
+
+function buildArticles() {
+  const posts = (window.KUICK_POSTS || []).map(p => ({
+    slug: p.slug,
+    titleEn: p.title,
+    subtitle: p.subtitle,
+    summary: p.subtitle,
+    category: p.category,
+    tags: p.tags,
+    body: p.body,
+    series: p.series,
+    part: p.part,
+    readingMinutes: p.readingMinutes,
+    relatedResources: p.relatedResources || [],
+    order: p.order,
+  }));
+
+  const guides = SITE_GUIDES.map((g, i) => ({
+    slug: g.slug,
+    titleEn: g.title,
+    subtitle: g.subtitle,
+    summary: g.subtitle,
+    category: g.category,
+    tags: g.tags,
+    body: g.body,
+    series: null,
+    part: null,
+    readingMinutes: 1,
+    relatedResources: [],
+    order: 1000 + i,
+  }));
+
+  const all = [...posts, ...guides];
+  all.forEach(a => { a.relatedSlugs = relatedSlugsFor(a, all); });
+  return all;
+}
+
+const articles = buildArticles();
 
 // Transcribed from Fall 2026 orientation materials (PRD §10) — real dates, not invented.
 // Always verify against the latest official academic calendar before relying on them.
@@ -440,6 +473,9 @@ let tileLayer = null;
 let activeCategories = new Set();
 
 function initMap() {
+  // Leaflet comes from a CDN. If it didn't load, say so in the map slot rather
+  // than throwing — the rest of the page (guides, apps, search) still works.
+  if (typeof L === 'undefined') { showMapUnavailable(); return; }
   leafletMap = L.map('leafletMap', { scrollWheelZoom: false }).setView([CAMPUS_CENTER.lat, CAMPUS_CENTER.lng], 16);
   // Wikimedia's "osm-intl" style renders English/Latin place names (falling back to local names
   // where no translation exists) instead of the Korean-only labels on standard OSM tiles.
@@ -469,6 +505,12 @@ function initMap() {
   if (window.ResizeObserver) {
     new ResizeObserver(resync).observe(document.getElementById('leafletMap'));
   }
+}
+
+function showMapUnavailable() {
+  const mapEl = document.getElementById('leafletMap');
+  if (!mapEl) return;
+  mapEl.innerHTML = '<div class="map-unavailable">The map couldn’t load — check your connection and reload the page. Every other section on this page still works.</div>';
 }
 
 function showMapRetryBanner() {
@@ -569,28 +611,62 @@ function closeDirectionsOnOverlay(e) { if (e.target.id === 'directionsOverlay') 
    LIFE IN KOREA (articles)
    ========================================================================= */
 
+const ARTICLES_PER_PAGE = 6;
+
 let articleQuery = '';
 let activeArticleCat = null;
+let articlePage = 1;
+
+/* Post bodies are markdown (see content/posts/*.md). Only the handful of
+   constructs those posts actually use are supported — headings, lists,
+   bold/italic, and links — everything else is escaped and shown as text. */
+function renderMarkdown(md) {
+  const inline = (text) => escapeHtml(text)
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
+
+  const blocks = md.replace(/\r/g, '').split(/\n{2,}/);
+  return blocks.map(block => {
+    const lines = block.split('\n').filter(l => l.trim());
+    if (!lines.length) return '';
+
+    if (lines.every(l => /^\s*-\s+/.test(l))) {
+      return '<ul>' + lines.map(l => '<li>' + inline(l.replace(/^\s*-\s+/, '')) + '</li>').join('') + '</ul>';
+    }
+    const heading = lines[0].match(/^(#{2,4})\s+(.*)$/);
+    if (heading) {
+      const level = Math.min(heading[1].length + 1, 5); // '##' in a post renders as <h3> inside the modal
+      const rest = lines.slice(1).join(' ');
+      return '<h' + level + '>' + inline(heading[2]) + '</h' + level + '>' + (rest ? '<p>' + inline(rest) + '</p>' : '');
+    }
+    return '<p>' + inline(lines.join(' ')) + '</p>';
+  }).join('');
+}
 
 function getFilteredArticles() {
   const q = articleQuery.trim().toLowerCase();
   return articles.filter(a => {
     if (activeArticleCat && a.category !== activeArticleCat) return false;
     if (!q) return true;
-    return a.titleEn.toLowerCase().includes(q) || a.summary.toLowerCase().includes(q) || a.tags.some(t => t.includes(q));
+    return a.titleEn.toLowerCase().includes(q)
+      || (a.subtitle || '').toLowerCase().includes(q)
+      || a.tags.some(t => t.toLowerCase().includes(q))
+      || a.body.toLowerCase().includes(q);
   });
 }
 
 function renderLifeFilters() {
   const cats = [...new Set(articles.map(a => a.category))];
   const wrap = document.getElementById('lifeFilters');
-  wrap.innerHTML = `<button type="button" class="filter-chip" data-cat="">All</button>` +
+  wrap.innerHTML = '<button type="button" class="filter-chip" data-cat="">All</button>' +
     cats.map(c => `<button type="button" class="filter-chip" data-cat="${escapeHtml(c)}">${escapeHtml(c)}</button>`).join('');
   const chips = [...wrap.querySelectorAll('.filter-chip')];
   const syncActive = () => chips.forEach(c => c.classList.toggle('active', (c.dataset.cat || null) === activeArticleCat));
   syncActive();
   chips.forEach(chip => chip.addEventListener('click', () => {
     activeArticleCat = chip.dataset.cat || null;
+    articlePage = 1;
     syncActive();
     renderArticleGrid();
   }));
@@ -598,23 +674,86 @@ function renderLifeFilters() {
 
 function jumpLifeCategory(cat) {
   activeArticleCat = cat || null;
+  articlePage = 1;
   renderLifeFilters();
   renderArticleGrid();
 }
 
+function articleCardHtml(a) {
+  const part = a.part ? `<span class="article-part">Part ${a.part}</span>` : '';
+  return `
+    <button type="button" class="article-card" data-slug="${a.slug}">
+      <span class="article-card-top"><span class="article-cat">${escapeHtml(a.category)}</span>${part}</span>
+      <h3>${escapeHtml(a.titleEn)}</h3>
+      <p class="article-summary">${escapeHtml(a.summary)}</p>
+      <span class="article-card-foot">
+        <span class="article-open">Read guide →</span>
+        <span class="article-read-time">${a.readingMinutes} min read</span>
+      </span>
+    </button>`;
+}
+
+/* The default view shows one page at a time — the full list is long enough
+   (and grows with every new researched post) that dumping all of it is noise. */
 function renderArticleGrid() {
   const list = getFilteredArticles();
   const grid = document.getElementById('articleGrid');
   const empty = document.getElementById('articleEmpty');
-  grid.innerHTML = list.map(a => `
-    <button type="button" class="article-card" data-slug="${a.slug}">
-      <span class="article-cat">${escapeHtml(a.category)}</span>
-      <h3>${escapeHtml(a.titleEn)}</h3>
-      <p class="article-summary">${escapeHtml(a.summary)}</p>
-      <span class="article-open">Read guide →</span>
-    </button>`).join('');
+  const pageCount = Math.max(1, Math.ceil(list.length / ARTICLES_PER_PAGE));
+
+  if (articlePage > pageCount) articlePage = pageCount;
+  const start = (articlePage - 1) * ARTICLES_PER_PAGE;
+  const pageItems = list.slice(start, start + ARTICLES_PER_PAGE);
+
+  grid.innerHTML = pageItems.map(articleCardHtml).join('');
   grid.querySelectorAll('.article-card').forEach(card => card.addEventListener('click', () => openArticle(card.dataset.slug)));
   empty.hidden = list.length > 0;
+
+  renderArticlePager(list.length, pageCount, start, pageItems.length);
+}
+
+function renderArticlePager(total, pageCount, start, shown) {
+  const pager = document.getElementById('articlePager');
+  if (!total) { pager.innerHTML = ''; pager.hidden = true; return; }
+
+  const count = `<span class="pager-count">Showing ${start + 1}–${start + shown} of ${total} guides</span>`;
+  if (pageCount === 1) { pager.innerHTML = count; pager.hidden = false; return; }
+
+  const pages = Array.from({ length: pageCount }, (_, i) => i + 1)
+    .map(n => `<button type="button" class="pager-num${n === articlePage ? ' active' : ''}" data-page="${n}"${n === articlePage ? ' aria-current="page"' : ''}>${n}</button>`)
+    .join('');
+
+  pager.innerHTML = `
+    ${count}
+    <div class="pager-controls">
+      <button type="button" class="pager-step" data-page="${articlePage - 1}"${articlePage === 1 ? ' disabled' : ''}>‹ Prev</button>
+      ${pages}
+      <button type="button" class="pager-step" data-page="${articlePage + 1}"${articlePage === pageCount ? ' disabled' : ''}>Next ›</button>
+    </div>`;
+  pager.hidden = false;
+
+  pager.querySelectorAll('button[data-page]').forEach(btn => btn.addEventListener('click', () => {
+    const next = Number(btn.dataset.page);
+    if (!next || next < 1 || next > pageCount || next === articlePage) return;
+    articlePage = next;
+    renderArticleGrid();
+    document.getElementById('life').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }));
+}
+
+/* A guide opened from search or a related link may live on a page the grid
+   isn't showing — flip to it so closing the modal doesn't drop the reader
+   somewhere unrelated. */
+function showPageContaining(slug) {
+  const list = getFilteredArticles();
+  const idx = list.findIndex(a => a.slug === slug);
+  if (idx < 0) return;
+  const page = Math.floor(idx / ARTICLES_PER_PAGE) + 1;
+  if (page !== articlePage) { articlePage = page; renderArticleGrid(); }
+}
+
+function hostOf(url) {
+  try { return new URL(url).host.replace(/^www\./, ''); } catch { return url; }
 }
 
 function openArticle(slug) {
@@ -622,16 +761,49 @@ function openArticle(slug) {
   if (!a) return;
   const saved = store.isLoggedIn && store.savedArticleSlugs.includes(slug);
   const related = (a.relatedSlugs || []).map(s => articles.find(x => x.slug === s)).filter(Boolean);
+  const seriesParts = a.series ? articles.filter(x => x.series === a.series && x.part).sort((x, y) => x.part - y.part) : [];
+
+  const resources = (a.relatedResources || []).length ? `
+    <h4 class="article-block-title">Official links</h4>
+    <div class="link-card-grid">
+      ${a.relatedResources.map(r => `<a class="link-card" href="${escapeHtml(r.url)}" target="_blank" rel="noopener"><strong>${escapeHtml(r.title)}</strong><span>${escapeHtml(hostOf(r.url))}</span></a>`).join('')}
+    </div>` : '';
+
+  const series = seriesParts.length ? `
+    <h4 class="article-block-title">In this series</h4>
+    <div class="related-list">
+      ${seriesParts.map(p => `<button data-slug="${p.slug}"${p.slug === a.slug ? ' class="current" disabled' : ''}>Part ${p.part} — ${escapeHtml(p.titleEn)}</button>`).join('')}
+    </div>` : '';
+
+  const relatedBlock = related.length ? `
+    <h4 class="article-block-title">Related guides</h4>
+    <div class="related-list">
+      ${related.map(r => `<button data-slug="${r.slug}">${escapeHtml(r.titleEn)}</button>`).join('')}
+    </div>` : '';
+
   document.getElementById('articleBody').innerHTML = `
-    <span class="article-detail-cat">${escapeHtml(a.category)}</span>
+    <div class="article-detail-head">
+      <span class="article-detail-cat">${escapeHtml(a.category)}</span>
+      ${a.part ? `<span class="article-part">Settlement Guide · Part ${a.part}</span>` : ''}
+      <span class="article-read-time">${a.readingMinutes} min read</span>
+    </div>
     <h2>${escapeHtml(a.titleEn)}</h2>
-    <div class="article-detail-body">${a.body.map(p => `<p>${escapeHtml(p)}</p>`).join('')}</div>
+    ${a.subtitle ? `<p class="article-detail-sub">${escapeHtml(a.subtitle)}</p>` : ''}
+    <div class="article-detail-body">${renderMarkdown(a.body)}</div>
+    ${a.tags.length ? `<div class="article-tags">${a.tags.map(t => `<span>#${escapeHtml(t)}</span>`).join('')}</div>` : ''}
+    ${resources}
     <button class="btn-outline" id="saveArticleBtn">${saved ? '★ Saved' : '☆ Save'}</button>
-    ${related.length ? `<h4 style="margin-top:1.2rem">Related</h4><div class="related-list">${related.map(r => `<button data-slug="${r.slug}">${escapeHtml(r.titleEn)}</button>`).join('')}</div>` : ''}`;
+    ${series}
+    ${relatedBlock}`;
+
   document.getElementById('saveArticleBtn').addEventListener('click', () => toggleSaveArticle(slug));
-  document.getElementById('articleBody').querySelectorAll('.related-list button').forEach(b => b.addEventListener('click', () => openArticle(b.dataset.slug)));
+  document.getElementById('articleBody').querySelectorAll('.related-list button[data-slug]:not([disabled])')
+    .forEach(b => b.addEventListener('click', () => openArticle(b.dataset.slug)));
   document.getElementById('articleOverlay').hidden = false;
+  document.querySelector('#articleOverlay .overlay-box').scrollTop = 0;
+  showPageContaining(slug);
 }
+
 function closeArticle() { document.getElementById('articleOverlay').hidden = true; }
 function closeArticleOnOverlay(e) { if (e.target.id === 'articleOverlay') closeArticle(); }
 
@@ -683,7 +855,7 @@ function runSearch(query, dropdownEl) {
   if (!q) { dropdownEl.hidden = true; dropdownEl.innerHTML = ''; return; }
   const placeHits = places.filter(p => p.nameEn.toLowerCase().includes(q)).slice(0, 4)
     .map(p => ({ label: p.nameEn, sub: `Map · ${CATEGORY_META[p.category].label}`, run: () => { closeSearch(dropdownEl); location.hash = '#map'; renderMapPanel(p); } }));
-  const articleHits = articles.filter(a => a.titleEn.toLowerCase().includes(q) || a.tags.some(t => t.includes(q))).slice(0, 4)
+  const articleHits = articles.filter(a => a.titleEn.toLowerCase().includes(q) || (a.subtitle || '').toLowerCase().includes(q) || a.tags.some(t => t.toLowerCase().includes(q))).slice(0, 4)
     .map(a => ({ label: a.titleEn, sub: `Guide · ${a.category}`, run: () => { closeSearch(dropdownEl); openArticle(a.slug); } }));
   const appHits = usefulApps.filter(a => a.name.toLowerCase().includes(q)).slice(0, 3)
     .map(a => ({ label: a.name, sub: `App · ${a.group}`, run: () => { closeSearch(dropdownEl); location.hash = `#apps-${slugify(a.group)}`; } }));
@@ -713,7 +885,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateHeaderAuthUI();
 
   renderMapFilters();
-  initMap();
+  try { initMap(); } catch (err) { console.error("Map failed to initialise", err); showMapUnavailable(); }
   renderLifeFilters();
   renderArticleGrid();
   renderApps();
@@ -739,7 +911,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const articleSearchInput = document.getElementById('articleSearch');
-  articleSearchInput.addEventListener('input', () => { articleQuery = articleSearchInput.value; renderArticleGrid(); });
+  articleSearchInput.addEventListener('input', () => { articleQuery = articleSearchInput.value; articlePage = 1; renderArticleGrid(); });
 
   const siteSearchInput = document.getElementById('siteSearch');
   const searchDropdown = document.getElementById('searchDropdown');

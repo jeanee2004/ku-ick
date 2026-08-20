@@ -1,0 +1,285 @@
+[
+  {
+    "order": 1,
+    "slug": "visa-application",
+    "series": "settlement-guide",
+    "category": "Immigration",
+    "part": 1,
+    "title": "Sorting Out Your Korea Visa Before You Ever Pack a Bag",
+    "subtitle": "The first of two paperwork milestones for anyone staying in Korea more than 90 days — and the one you handle from home",
+    "tags": [
+      "KoreaVisaPortal",
+      "VisaGrantNotice",
+      "StudyInKorea",
+      "InternationalStudentKorea",
+      "D2Visa"
+    ],
+    "relatedResources": [
+      {
+        "title": "Korea Visa Portal — official site (visa.go.kr)",
+        "url": "https://www.visa.go.kr/"
+      }
+    ],
+    "file": "posts/visa-application.md"
+  },
+  {
+    "order": 2,
+    "slug": "residence-card",
+    "series": "settlement-guide",
+    "category": "Immigration",
+    "part": 2,
+    "title": "Registering as a Foreign Resident: Getting Your Residence Card",
+    "subtitle": "Your first 90 days in Korea come with one non-negotiable errand — here's exactly how to handle it",
+    "tags": [
+      "ResidenceCardKorea",
+      "ARCKorea",
+      "HiKoreaAppointment",
+      "ForeignerRegistration",
+      "InternationalStudentKorea"
+    ],
+    "relatedResources": [
+      {
+        "title": "HiKorea — official site (hikorea.go.kr)",
+        "url": "https://www.hikorea.go.kr/"
+      }
+    ],
+    "file": "posts/residence-card.md"
+  },
+  {
+    "order": 3,
+    "slug": "korea-sim-part1-landing-day",
+    "series": "settlement-guide",
+    "category": "Mobile",
+    "part": 3,
+    "title": "Your Korean Phone Number, Part 1: Getting Connected the Moment You Land",
+    "subtitle": "The prepaid 010/USIM guide for your first days in Korea — before your Residence Card even exists",
+    "tags": [
+      "KoreaSIM",
+      "PrepaidUSIM",
+      "Korea010Number",
+      "InternationalStudentKorea",
+      "KoreaTravelTips"
+    ],
+    "relatedResources": [
+      {
+        "title": "LG U+ Korea SIM — English site",
+        "url": "https://www.lguplus.com/korea-sim/eng/pc"
+      },
+      {
+        "title": "Korea SIM Card (krsim.net) — tourist SIM/eSIM registration",
+        "url": "https://krsim.net/"
+      }
+    ],
+    "file": "posts/korea-sim-part1-landing-day.md"
+  },
+  {
+    "order": 4,
+    "slug": "korea-sim-part2-permanent-line",
+    "series": "settlement-guide",
+    "category": "Mobile",
+    "part": 4,
+    "title": "Your Korean Phone Number, Part 2: Registering Your Permanent Line",
+    "subtitle": "What to do once your Residence Card arrives — from carrier registration to your PASS identity certificate",
+    "tags": [
+      "ResidenceCardKorea",
+      "KoreaMVNO",
+      "PASSCertificate",
+      "Korea010Number",
+      "InternationalStudentKorea"
+    ],
+    "relatedResources": [
+      {
+        "title": "KT M Mobile — SIM & Device Activation Guide",
+        "url": "https://www.ktmmobile.com/mmobile/ktmMobileUsimGuid.do"
+      },
+      {
+        "title": "PASS Certificate — official info (passauth.co.kr)",
+        "url": "https://www.passauth.co.kr/"
+      }
+    ],
+    "file": "posts/korea-sim-part2-permanent-line.md"
+  },
+  {
+    "order": 5,
+    "slug": "naver-map-english",
+    "series": "settlement-guide",
+    "category": "Transportation",
+    "part": null,
+    "title": "Switching Naver Map to English: Your Essential Navigation Fix",
+    "subtitle": "The one settings change that makes Korea's most accurate map app finally readable",
+    "tags": [
+      "NaverMap",
+      "LifeInKorea",
+      "KoreaTravelGuide",
+      "KoreanAppGuide",
+      "ForeignersInKorea"
+    ],
+    "relatedResources": [
+      {
+        "title": "Naver Map — web version",
+        "url": "https://map.naver.com"
+      },
+      {
+        "title": "Naver Map — App Store listing",
+        "url": "https://apps.apple.com/kr/app/id311867728"
+      }
+    ],
+    "file": "posts/naver-map-english.md"
+  },
+  {
+    "order": 6,
+    "slug": "tmoney-card-guide",
+    "series": "settlement-guide",
+    "category": "Transportation",
+    "part": null,
+    "title": "Getting Around Without Cash: Your T-money Card, Explained",
+    "subtitle": "From your first card purchase to tapping in hands-free with Apple Pay",
+    "tags": [
+      "TmoneyCard",
+      "KoreaPublicTransit",
+      "LifeInKorea",
+      "ApplePayKorea",
+      "ForeignersInKorea"
+    ],
+    "relatedResources": [
+      {
+        "title": "T-money — official English site",
+        "url": "https://eng.tmoney.co.kr/"
+      }
+    ],
+    "file": "posts/tmoney-card-guide.md"
+  },
+  {
+    "order": 7,
+    "slug": "bank-account-opening",
+    "series": "settlement-guide",
+    "category": "Banking",
+    "part": null,
+    "title": "Opening a Korean Bank Account: What You Actually Need",
+    "subtitle": "From your first branch visit to unlocking full mobile banking, step by step",
+    "tags": [
+      "KoreaBankAccount",
+      "ForeignerBanking",
+      "StudyInKorea",
+      "KoreaMobileBanking",
+      "InternationalStudentKorea"
+    ],
+    "relatedResources": [
+      {
+        "title": "KB Kookmin Bank — Foreigner Account Guide",
+        "url": "https://kbthink.com/saving-guide/foreigner-account.html"
+      }
+    ],
+    "file": "posts/bank-account-opening.md"
+  },
+  {
+    "order": 8,
+    "slug": "arc-phone-linkage",
+    "series": "settlement-guide",
+    "category": "Mobile",
+    "part": null,
+    "title": "Already Have a Phone Number? Here's How to Link Your Residence Card to It",
+    "subtitle": "For anyone who opened a line on a passport and now has their ARC in hand",
+    "tags": [
+      "ARCKorea",
+      "KoreaPhoneNumber",
+      "ResidenceCardKorea",
+      "InternationalStudentKorea",
+      "KoreaMobileCarrier"
+    ],
+    "relatedResources": [],
+    "file": "posts/arc-phone-linkage.md"
+  },
+  {
+    "order": 9,
+    "slug": "korail-booking",
+    "series": "settlement-guide",
+    "category": "Transportation",
+    "part": null,
+    "title": "Booking Train Tickets in Korea: KTX, KORAIL, and the 2026 Merger",
+    "subtitle": "How to book, pay, and manage your ticket without a Korean ID",
+    "tags": [
+      "KTX",
+      "KORAIL",
+      "KoreaTrainTravel",
+      "SRTMerger",
+      "InternationalStudentKorea"
+    ],
+    "relatedResources": [
+      {
+        "title": "KORAIL — official booking site",
+        "url": "https://www.letskorail.com/"
+      }
+    ],
+    "file": "posts/korail-booking.md"
+  },
+  {
+    "order": 10,
+    "slug": "korail-pass-and-etiquette",
+    "series": "settlement-guide",
+    "category": "Transportation",
+    "part": null,
+    "title": "The KORAIL Pass and How to Ride Like a Local",
+    "subtitle": "Everything covered by the foreigner-only rail pass, plus the unwritten rules of the platform",
+    "tags": [
+      "KORAILPass",
+      "KTX",
+      "KoreaTrainTravel",
+      "TrainEtiquette",
+      "InternationalStudentKorea"
+    ],
+    "relatedResources": [
+      {
+        "title": "KORAIL — official booking site",
+        "url": "https://www.letskorail.com/"
+      }
+    ],
+    "file": "posts/korail-pass-and-etiquette.md"
+  },
+  {
+    "order": 11,
+    "slug": "health-insurance-enrollment-cost",
+    "series": "settlement-guide",
+    "category": "Insurance",
+    "part": null,
+    "title": "Korean National Health Insurance: Enrollment, Cost, and What's Covered",
+    "subtitle": "Why you're already enrolled whether you applied or not, and what it actually costs in 2026",
+    "tags": [
+      "NHISKorea",
+      "HealthInsuranceKorea",
+      "D2Visa",
+      "InternationalStudentKorea",
+      "KoreaHealthcare"
+    ],
+    "relatedResources": [
+      {
+        "title": "National Health Insurance Service — English site",
+        "url": "https://www.nhis.or.kr/english/index.do"
+      }
+    ],
+    "file": "posts/health-insurance-enrollment-cost.md"
+  },
+  {
+    "order": 12,
+    "slug": "health-insurance-good-standing",
+    "series": "settlement-guide",
+    "category": "Insurance",
+    "part": null,
+    "title": "Staying in Good Standing With Your Health Insurance",
+    "subtitle": "What happens if you miss a payment, travel home, or move — and why opting out is harder than it sounds",
+    "tags": [
+      "NHISKorea",
+      "HealthInsuranceKorea",
+      "InternationalStudentKorea",
+      "KoreaVisaExtension",
+      "KoreaHealthcare"
+    ],
+    "relatedResources": [
+      {
+        "title": "National Health Insurance Service — English site",
+        "url": "https://www.nhis.or.kr/english/index.do"
+      }
+    ],
+    "file": "posts/health-insurance-good-standing.md"
+  }
+]

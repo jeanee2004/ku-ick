@@ -182,6 +182,10 @@ ul { list-style: none; margin: 0; padding: 0; }
 .panel-meta { font-size: .85rem; color: var(--text-mute); margin-bottom: 1em; }
 .panel-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
 
+.map-unavailable {
+  display: flex; align-items: center; justify-content: center; height: 100%;
+  padding: 2rem; text-align: center; color: var(--text-mute); font-size: .92rem;
+}
 .leaflet-div-icon { background: none; border: none; font-size: 1.6rem; text-align: center; line-height: 1; filter: drop-shadow(0 2px 3px rgba(0,0,0,.25)); }
 
 /* ===== Life in Korea ===== */
@@ -196,10 +200,34 @@ ul { list-style: none; margin: 0; padding: 0; }
   padding: 1.2rem; box-shadow: var(--shadow); text-align: left; display: flex; flex-direction: column; gap: .5rem;
 }
 .article-card:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(42,34,37,0.12); }
+.article-card-top { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
 .article-cat { color: var(--accent); font-weight: 700; font-size: .74rem; text-transform: uppercase; letter-spacing: .03em; }
+.article-part {
+  font-size: .68rem; font-weight: 700; letter-spacing: .03em; color: var(--sub);
+  background: var(--sub-light); border-radius: 999px; padding: .15em .6em;
+}
 .article-card h3 { font-size: 1.05rem; margin: 0; }
 .article-summary { color: var(--text-mute); font-size: .88rem; flex: 1; }
-.article-open { align-self: flex-start; font-weight: 700; font-size: .85rem; }
+.article-card-foot { display: flex; align-items: baseline; justify-content: space-between; gap: .6rem; }
+.article-open { font-weight: 700; font-size: .85rem; color: var(--accent); }
+.article-read-time { font-size: .78rem; color: var(--text-mute); }
+
+/* Pagination — the default view shows one page of guides at a time. */
+.pager {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: .8rem; margin-top: 1.6rem;
+}
+.pager[hidden] { display: none; }
+.pager-count { font-size: .85rem; color: var(--text-mute); }
+.pager-controls { display: flex; align-items: center; gap: .35rem; flex-wrap: wrap; }
+.pager-num, .pager-step {
+  min-width: 2.1rem; padding: .4em .8em;
+  border: 1px solid var(--border); background: var(--base-card); color: var(--text);
+  border-radius: 999px; font-size: .85rem; font-weight: 600;
+}
+.pager-num:hover:not(.active), .pager-step:hover:not([disabled]) { background: var(--sub-light); }
+.pager-num.active { background: var(--accent); border-color: var(--accent); color: #fff; cursor: default; }
+.pager-step[disabled] { opacity: .4; cursor: not-allowed; }
 .empty-state { color: var(--text-mute); text-align: center; padding: 2rem 0; }
 
 /* ===== Useful Apps ===== */
@@ -327,11 +355,27 @@ ul { list-style: none; margin: 0; padding: 0; }
 .directions-choice a { display: block; padding: .8em 1em; border: 1px solid var(--border); border-radius: 8px; font-weight: 600; text-align: center; }
 .directions-choice a:hover { background: var(--sub-light); }
 
+.article-detail-head { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin-bottom: .4rem; }
 .article-detail-cat { color: var(--accent); font-weight: 700; font-size: .78rem; text-transform: uppercase; }
-.article-detail-body { margin: 1rem 0; font-size: .95rem; }
+.article-detail-sub { color: var(--text-mute); font-size: .95rem; margin: 0 0 .6rem; }
+.article-detail-body { margin: 1rem 0 1.4rem; font-size: .95rem; }
 .article-detail-body p { margin: 0 0 .9em; }
+.article-detail-body h3 {
+  font-size: 1.08rem; margin: 1.6em 0 .5em; color: var(--accent-dark);
+  padding-top: .8em; border-top: 1px solid var(--border);
+}
+.article-detail-body h4 { font-size: .98rem; margin: 1.2em 0 .4em; }
+.article-detail-body ul { list-style: disc; margin: 0 0 1em; padding-left: 1.3em; }
+.article-detail-body li { margin-bottom: .45em; }
+.article-detail-body strong { color: var(--text); }
+.article-detail-body a { text-decoration: underline; }
+.article-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.2rem; }
+.article-tags span { font-size: .75rem; color: var(--sub); background: var(--sub-light); border-radius: 999px; padding: .25em .7em; }
+.article-block-title { font-size: .95rem; margin: 1.4rem 0 .2rem; }
 .related-list { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .8rem; }
-.related-list button { border: 1px solid var(--border); background: #fff; border-radius: 999px; padding: .4em .9em; font-size: .82rem; }
+.related-list button { border: 1px solid var(--border); background: #fff; border-radius: 999px; padding: .4em .9em; font-size: .82rem; text-align: left; }
+.related-list button:hover:not([disabled]) { background: var(--sub-light); }
+.related-list button.current { background: var(--accent); border-color: var(--accent); color: #fff; cursor: default; }
 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
